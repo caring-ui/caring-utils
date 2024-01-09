@@ -1,0 +1,20 @@
+{
+  "name": "caring-utils",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^4.9.4"
+  }
+}
