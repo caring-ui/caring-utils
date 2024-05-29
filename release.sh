@@ -3,7 +3,7 @@
  # @Author: Wanko
  # @Date: 2024-05-29 15:44:23
  # @LastEditors: Wanko
- # @LastEditTime: 2024-05-29 15:45:28
+ # @LastEditTime: 2024-05-29 16:52:56
  # @Description: 
 ### 
 
@@ -14,7 +14,7 @@ echo "Current version is $NODE_VERSION"
 echo "Enter release version: "
 read VERSION
 read -p "Releasing $VERSION - are you sure? (y/n)" -n 1 -r
-echo  # (optional) move to a new line
+echo 
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
   echo "🕙 Releasing $VERSION ..."
