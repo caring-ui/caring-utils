@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2022-06-27 10:20:14
  * @LastEditors: Wanko
- * @LastEditTime: 2024-05-29 16:36:15
+ * @LastEditTime: 2024-05-29 16:51:24
  * @Description:
  */
 import debounce from './lib/js/debounce'
@@ -24,7 +24,10 @@ import {
   priceFormat,
   padZero,
   getProperty,
-  setProperty
+  setProperty,
+  getQueryParams,
+  isReferenceArray,
+  unique
 } from './lib/js/index'
 
 // 单独导出
@@ -46,7 +49,10 @@ export {
   priceFormat,
   padZero,
   getProperty,
-  setProperty
+  setProperty,
+  getQueryParams,
+  isReferenceArray,
+  unique
 }
 
 /// 默认导出
@@ -68,5 +74,8 @@ export default {
   priceFormat,
   padZero,
   getProperty,
-  setProperty
+  setProperty,
+  getQueryParams,
+  isReferenceArray,
+  unique
 }
