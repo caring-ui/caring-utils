@@ -2,13 +2,11 @@
  * @Author: Wanko
  * @Date: 2022-06-27 10:20:14
  * @LastEditors: Wanko
- * @LastEditTime: 2024-01-09 15:15:14
+ * @LastEditTime: 2024-05-29 16:36:15
  * @Description:
  */
 import debounce from './lib/js/debounce'
 import throttle from './lib/js/throttle'
-import test from './lib/js/test'
-// import * as utils from './js'
 
 import {
   range,
@@ -31,7 +29,6 @@ import {
 
 // 单独导出
 export {
-  test,
   debounce,
   throttle,
   range,
@@ -56,7 +53,6 @@ export {
 export default {
   debounce,
   throttle,
-  test,
   range,
   sleep,
   random,
