@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2022-06-27 10:20:14
  * @LastEditors: Wanko
- * @LastEditTime: 2024-05-29 16:51:24
+ * @LastEditTime: 2024-05-29 17:13:01
  * @Description:
  */
 import debounce from './lib/js/debounce'
@@ -50,9 +50,9 @@ export {
   padZero,
   getProperty,
   setProperty,
-  getQueryParams,
-  isReferenceArray,
-  unique
+  // getQueryParams,
+  // isReferenceArray,
+  // unique
 }
 
 /// 默认导出
@@ -75,7 +75,7 @@ export default {
   padZero,
   getProperty,
   setProperty,
-  getQueryParams,
-  isReferenceArray,
-  unique
+  // getQueryParams,
+  // isReferenceArray,
+  // unique
 }
