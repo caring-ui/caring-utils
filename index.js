@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2022-06-27 10:20:14
  * @LastEditors: Wanko
- * @LastEditTime: 2024-05-29 17:21:41
+ * @LastEditTime: 2024-06-06 11:01:33
  * @Description:
  */
 import debounce from './lib/js/debounce'
@@ -16,7 +16,7 @@ import {
   deepClone,
   deepMerge,
   randomArray,
-  timeFormat,
+  date,
   timeFrom,
   trim,
   queryParams,
@@ -27,11 +27,13 @@ import {
   setProperty,
   getQueryParams,
   isReferenceArray,
-  unique
+  unique,
+  shuffle
 } from './lib/js/index'
 
 // 单独导出
 export {
+  shuffle,
   debounce,
   throttle,
   range,
@@ -41,7 +43,7 @@ export {
   deepClone,
   deepMerge,
   randomArray,
-  timeFormat,
+  date,
   timeFrom,
   trim,
   queryParams,
@@ -57,6 +59,7 @@ export {
 
 /// 默认导出
 export default {
+  shuffle,
   debounce,
   throttle,
   range,
@@ -66,7 +69,7 @@ export default {
   deepClone,
   deepMerge,
   randomArray,
-  timeFormat,
+  date,
   timeFrom,
   trim,
   queryParams,
