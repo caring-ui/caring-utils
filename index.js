@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2022-06-27 10:20:14
  * @LastEditors: Wanko
- * @LastEditTime: 2024-06-06 11:01:33
+ * @LastEditTime: 2024-06-06 16:52:08
  * @Description:
  */
 import debounce from './lib/js/debounce'
@@ -16,7 +16,6 @@ import {
   deepClone,
   deepMerge,
   randomArray,
-  date,
   timeFrom,
   trim,
   queryParams,
@@ -43,7 +42,6 @@ export {
   deepClone,
   deepMerge,
   randomArray,
-  date,
   timeFrom,
   trim,
   queryParams,
@@ -69,7 +67,6 @@ export default {
   deepClone,
   deepMerge,
   randomArray,
-  date,
   timeFrom,
   trim,
   queryParams,

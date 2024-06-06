@@ -2,11 +2,12 @@
  * @Author: Wanko
  * @Date: 2024-01-09 11:01:36
  * @LastEditors: Wanko
- * @LastEditTime: 2024-05-29 16:46:19
+ * @LastEditTime: 2024-06-06 16:50:21
  * @Description: 
  */
 import terser from '@rollup/plugin-terser'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
 
 export default {
   input: 'index.js',
@@ -15,5 +16,5 @@ export default {
       file: 'dist/index.js'
     }
   ],
-  plugins: [nodeResolve(), terser()]
+  plugins: [nodeResolve(), commonjs(), terser()]
 }
