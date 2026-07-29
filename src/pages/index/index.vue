@@ -1,6 +1,11 @@
 <template>
-  <view class="">
-    <button @click="showToast">toast</button>
+  <view class="h-screen bg-f8 overflow-hidden">
+    <div class="m p rounded hover text-red bg-red-light" @click="showToast">
+      toast
+    </div>
+    <div class="m p rounded bg-white hover" @click="showModal">
+      modal
+    </div>
   </view>
 </template>
 
@@ -23,6 +28,9 @@ export default {
   },
   methods: {
     showToast() {
+      toast('hello world')
+    },
+    showModal() {
       modal('hello world')
     }
   },
