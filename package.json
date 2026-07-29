@@ -1,6 +1,6 @@
 {
   "name": "caring-utils",
-  "version": "1.0.8",
+  "version": "1.0.11",
   "scripts": {
     "dev": "npm run dev:h5",
     "dev:h5": "uni",
