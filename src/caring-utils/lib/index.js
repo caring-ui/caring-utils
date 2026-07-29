@@ -1,4 +1,4 @@
-// import {isArray} from 'caring-test'
+import {isArray} from './test.js'
 
 /**
  * 如果value小于min，取min；如果value大于max，取max

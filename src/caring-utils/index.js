@@ -1,13 +1,16 @@
 /*
- * @Author: Wanko
- * @Date: 2022-06-27 10:20:14
- * @LastEditors: Wanko
- * @LastEditTime: 2024-06-06 16:52:08
- * @Description:
- */
+* @Author: Wanko
+* @Date: 2022-06-27 10:20:14
+* @LastEditors: Wanko
+* @LastEditTime: 2024-06-06 16:52:08
+* @Description:
+*/
 import debounce from './lib/debounce'
 import throttle from './lib/throttle'
+import * as test from './lib/test.js'
 
+
+console.log('🐛 ~ index.js:1 ~ test 🐛:', test)
 import {
   range,
   sleep,
@@ -27,7 +30,7 @@ import {
   getQueryParams,
   isReferenceArray,
   unique,
-  shuffle
+  shuffle,
 } from './lib/index'
 
 // 单独导出
@@ -52,11 +55,13 @@ export {
   setProperty,
   getQueryParams,
   isReferenceArray,
-  unique
+  unique,
+  test,
 }
 
 /// 默认导出
 export default {
+  test,
   shuffle,
   debounce,
   throttle,
