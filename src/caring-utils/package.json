@@ -1,0 +1,14 @@
+{
+  "name": "caring-utils",
+  "version": "1.0.9",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "工具库"
+  ],
+  "author": "wanko",
+  "license": "ISC",
+  "description": "通用工具函数"
+}
