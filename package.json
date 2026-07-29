@@ -5,7 +5,9 @@
     "dev": "npm run dev:h5",
     "dev:h5": "uni",
     "dev:mp-weixin": "uni -p mp-weixin",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "pub": "sh release.sh",
+    "prebuild": "npm run build"
   },
   "dependencies": {
     "@dcloudio/uni-app": "3.0.0-5010520260709002",
