@@ -13,8 +13,8 @@ then
   cd src/caring-utils
   npm version $VERSION --message "[release] $VERSION"
 
-  # git add .
-  # git commit -m "[build] $VERSION"  
+  git add .
+  git commit -m "[build] $VERSION"  
   git push origin main
   npm publish
 fi
