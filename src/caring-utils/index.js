@@ -1,86 +1,22 @@
-/*
-* @Author: Wanko
-* @Date: 2022-06-27 10:20:14
-* @LastEditors: Wanko
-* @LastEditTime: 2024-06-06 16:52:08
-* @Description:
-*/
 import debounce from './lib/debounce'
 import throttle from './lib/throttle'
+
+export * from './lib/utils.js'
+import * as utils from './lib/utils.js'
+
+export * from './lib/test.js'
 import * as test from './lib/test.js'
+export {test}
+
+export * from './lib/uniUtils.js'
+import * as uniUtils from './lib/uniUtils.js'
+export {uniUtils}
 
 
-console.log('🐛 ~ index.js:1 ~ test 🐛:', test)
-import {
-  range,
-  sleep,
-  random,
-  guid,
-  deepClone,
-  deepMerge,
-  randomArray,
-  timeFrom,
-  trim,
-  queryParams,
-  getParams,
-  priceFormat,
-  padZero,
-  getProperty,
-  setProperty,
-  getQueryParams,
-  isReferenceArray,
-  unique,
-  shuffle,
-} from './lib/index'
-
-// 单独导出
-export {
-  shuffle,
-  debounce,
-  throttle,
-  range,
-  sleep,
-  random,
-  guid,
-  deepClone,
-  deepMerge,
-  randomArray,
-  timeFrom,
-  trim,
-  queryParams,
-  getParams,
-  priceFormat,
-  padZero,
-  getProperty,
-  setProperty,
-  getQueryParams,
-  isReferenceArray,
-  unique,
-  test,
-}
-
-/// 默认导出
 export default {
-  test,
-  shuffle,
+  ...utils,
   debounce,
   throttle,
-  range,
-  sleep,
-  random,
-  guid,
-  deepClone,
-  deepMerge,
-  randomArray,
-  timeFrom,
-  trim,
-  queryParams,
-  getParams,
-  priceFormat,
-  padZero,
-  getProperty,
-  setProperty,
-  getQueryParams,
-  isReferenceArray,
-  unique
+  test,
+  uniUtils
 }

@@ -3,14 +3,14 @@ import {isArray} from './test.js'
 /**
  * 如果value小于min，取min；如果value大于max，取max
  */
-const range = (min = 0, max = 0, value = 0) => Math.max(min, Math.min(max, Number(value)))
+export const range = (min = 0, max = 0, value = 0) => Math.max(min, Math.min(max, Number(value)))
 
 /**
  * 随机数值
  * @param {Number} min 最小值
  * @param {Number} max 最大值
  */
-const random = (min, max) => {
+export const random = (min, max) => {
   if (min >= 0 && max > 0 && max >= min) {
     const gab = max - min + 1
     return Math.floor(Math.random() * gab + min)
@@ -23,7 +23,7 @@ const random = (min, max) => {
  * 进行延时，以达到可以简写代码的目的，比如
  * await sleep(20)将会阻塞20ms
  */
-const sleep = (value = 30) => {
+export const sleep = (value = 30) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve()
@@ -34,7 +34,7 @@ const sleep = (value = 30) => {
 /**
  * 去除空格
  */
-const trim = (str, pos = 'both') => {
+export const trim = (str, pos = 'both') => {
   str = String(str)
   if (pos == 'both') {
     return str.replace(/^\s+|\s+$/g, '')
@@ -61,7 +61,7 @@ const trim = (str, pos = 'both') => {
  * @param {Boolean} firstC 将返回的首字母置为"c"
  * @param {Nubmer} radix 生成uuid的基数(意味着返回的字符串都是这个基数),2-二进制,8-八进制,10-十进制,16-十六进制
  */
-const guid = (len = 32, firstC = true, radix = null) => {
+export const guid = (len = 32, firstC = true, radix = null) => {
   const chars =
     '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('')
   const uuid = []
@@ -92,7 +92,7 @@ const guid = (len = 32, firstC = true, radix = null) => {
 }
 
 // 深度克隆
-function deepClone (obj) {
+export const deepClone = (obj) => {
   // 对常见的“非”值，直接返回原来值
   if ([null, undefined, NaN, false].includes(obj)) return obj
   if (typeof obj !== 'object' && typeof obj !== 'function') {
@@ -109,7 +109,7 @@ function deepClone (obj) {
 }
 
 // JS对象深度合并
-function deepMerge (target = {}, source = {}) {
+export const deepMerge = (target = {}, source = {}) => {
   target = deepClone(target)
   if (typeof target !== 'object' || typeof source !== 'object') return false
   for (const prop in source) {
@@ -132,7 +132,7 @@ function deepMerge (target = {}, source = {}) {
 }
 
 // 打乱数组
-function randomArray (array = []) {
+export const randomArray = (array = []) => {
   // 原理是sort排序,Math.random()产生0<= x < 1之间的数,会导致x-0.05大于或者小于0
   return array.sort(() => Math.random() - 0.5)
 }
@@ -142,7 +142,7 @@ function randomArray (array = []) {
  * @param {*} array
  * @return {*}
  */
-function shuffle(array) {
+export const shuffle = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
     ;[array[i], array[j]] = [array[j], array[i]] // 交换元素
@@ -157,7 +157,7 @@ function shuffle(array) {
  * @param String | Boolean format 如果为时间格式字符串，超出一定时间范围，返回固定的时间格式；
  * 如果为布尔值false，无论什么时间，都返回多久以前的格式
  */
-function timeFrom (timestamp = null, format = 'yyyy-mm-dd') {
+export const timeFrom = (timestamp = null, format = 'yyyy-mm-dd') => {
   if (timestamp == null) timestamp = Number(new Date())
   timestamp = parseInt(timestamp)
   // 判断用户输入的时间戳是秒还是毫秒,一般前端js获取的时间戳是毫秒(13位),后端传过来的为秒(10位)
@@ -199,7 +199,7 @@ function timeFrom (timestamp = null, format = 'yyyy-mm-dd') {
  * @param {*} data,对象
  * @param {*} isPrefix,是否自动加上"?"
  */
-function queryParams (data = {}, isPrefix = true, arrayFormat = 'brackets') {
+export const queryParams = (data = {}, isPrefix = true, arrayFormat = 'brackets') => {
   const prefix = isPrefix ? '?' : ''
   const _result = []
   if (['indices', 'brackets', 'repeat', 'comma'].indexOf(arrayFormat) == -1) arrayFormat = 'brackets'
@@ -256,7 +256,7 @@ function queryParams (data = {}, isPrefix = true, arrayFormat = 'brackets') {
  url: 参数所在的路径
  index: ?所在的索引位置
  */
-function getParams(variable, url = location.href, index=1) {
+export const getParams = (variable, url = location.href, index=1) => {
 	const _href = decodeURIComponent(url)
 	if (_href.indexOf('?') < 0) {
 		return false
@@ -279,7 +279,7 @@ function getParams(variable, url = location.href, index=1) {
  * decimalPoint：小数点符号
  * thousandsSeparator：千分位符号
  * */
-function priceFormat (number, decimals = 0, decimalPoint = '.', thousandsSeparator = ',') {
+export const priceFormat = (number, decimals = 0, decimalPoint = '.', thousandsSeparator = ',') => {
   number = (`${number}`).replace(/[^0-9+-Ee.]/g, '')
   const n = !isFinite(+number) ? 0 : +number
   const prec = !isFinite(+decimals) ? 0 : Math.abs(decimals)
@@ -305,13 +305,13 @@ function priceFormat (number, decimals = 0, decimalPoint = '.', thousandsSeparat
 }
 
 // 日期的月或日补零操作
-function padZero (value) {
+export const padZero = (value) => {
   if (!value) return '00'
   return `00${value}`.slice(-2)
 }
 
 // 获取某个对象下的属性，用于通过类似'a.b.c'的形式去获取一个对象的的属性的形式
-function getProperty (obj, key) {
+export const getProperty = (obj, key) => {
   if (!obj) {
     return
   }
@@ -333,7 +333,7 @@ function getProperty (obj, key) {
 }
 
 // 设置对象的属性值，如果'a.b.c'的形式进行设置
-function setProperty (obj, key, value) {
+export const setProperty = (obj, key, value) => {
   if (!obj) {
     return
   }
@@ -372,7 +372,7 @@ function setProperty (obj, key, value) {
  * @param {*} paramName
  * @return {*}
  */
-function getQueryParams(url, paramName = null) {
+export const getQueryParams = (url, paramName = null) => {
   let queryParams = {}
   let queryString = url.split('?')[1]
 
@@ -391,14 +391,6 @@ function getQueryParams(url, paramName = null) {
   return queryParams
 }
 
-/**
- * @description: 是否是引用类型数组
- * @param {*} arr
- * @return {*}
- */
-function isReferenceArray(arr) {
-  return arr.some((item) => typeof item === 'object' && item !== null)
-}
 
 /**
  * @description: 去重，支持值类型和引用类型
@@ -406,7 +398,7 @@ function isReferenceArray(arr) {
  * @param {*} key
  * @return {*}
  */
-function unique(arr, key) {
+export const unique = (arr, key) => {
   if(!isArray(arr)) return []
   if (!isReferenceArray(arr)) {
     return [...new Set(arr)]
@@ -421,27 +413,5 @@ function unique(arr, key) {
     }
     return result
   }, [])
-}
-
-export {
-  range,
-  sleep,
-  random,
-  guid,
-  deepClone,
-  deepMerge,
-  randomArray,
-  timeFrom,
-  trim,
-  queryParams,
-  getParams,
-  priceFormat,
-  padZero,
-  getProperty,
-  setProperty,
-  getQueryParams,
-  isReferenceArray,
-  unique,
-  shuffle
 }
 

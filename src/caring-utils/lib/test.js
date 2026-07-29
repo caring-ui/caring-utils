@@ -1,4 +1,12 @@
-// 常用数据类型校验函数
+/**
+ * @description: 是否是引用类型数组
+ * @param {*} arr
+ * @return {*}
+ */
+export const isReferenceArray = (arr) => {
+  return arr.some((item) => typeof item === 'object' && item !== null)
+}
+
 export function isArray(value) {
   if (typeof Array.isArray === 'function') {
     return Array.isArray(value)
