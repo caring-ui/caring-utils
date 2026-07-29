@@ -15,7 +15,7 @@ then
 
   # git add .
   # git commit -m "[build] $VERSION"  
-  git push origin master
+  git push origin main
   npm publish
 fi
 echo "🎉 $VERSION version publish success"
