@@ -9,7 +9,8 @@
 </template>
 
 <script>
-import utils from '../../caring-utils/index.js'
+// import utils from '../../caring-utils/index.js'
+import utils from 'caring-utils'
 import { test, uniUtils, isArray, modal } from '../../caring-utils/index.js'
 export default {
   data() {
@@ -29,7 +30,7 @@ export default {
   },
   methods: {
     async onShowLoading() {
-      utils.loading()
+      utils.showLoading()
       await utils.sleep(1000)
       utils.hideLoading()
     },
