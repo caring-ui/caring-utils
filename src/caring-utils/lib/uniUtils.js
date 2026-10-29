@@ -68,6 +68,9 @@ export const modal = (option) => {
     })
   })
 }
+export const showModal = modal
+
+
 
 export const loading = (title = '数据加载中') => {
   uni.showLoading({
@@ -75,6 +78,7 @@ export const loading = (title = '数据加载中') => {
     mask: true
   })
 }
+export const showLoading = loading
 
 export const hideLoading = () => {
   uni.hideLoading()
@@ -130,6 +134,7 @@ export const toast = (
     }
   })
 }
+export const showToast = toast
 
 export const copy = (data) => {
   return new Promise((resolve, reject) => {

@@ -9,7 +9,7 @@ let timeout = null;
  * @return null
  */
 
-function debounce(func, wait = 500, immediate = false) {
+export function debounce(func, wait = 500, immediate = false) {
   // 清除定时器
   if (timeout !== null) clearTimeout(timeout)
   // 立即执行，此类情况一般用不到

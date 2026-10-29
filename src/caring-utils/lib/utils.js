@@ -1,5 +1,8 @@
 import {isArray} from './test.js'
 
+export * from './debounce.js'
+export * from './throttle.js'
+
 /**
  * 如果value小于min，取min；如果value大于max，取max
  */
@@ -99,7 +102,7 @@ export const deepClone = (obj) => {
     // 原始类型直接返回
     return obj
   }
-  // const o = isArray(obj) ? [] : {}
+  const o = isArray(obj) ? [] : {}
   for (const i in obj) {
     if (obj.hasOwnProperty(i)) {
       o[i] = typeof obj[i] === 'object' ? deepClone(obj[i]) : obj[i]
