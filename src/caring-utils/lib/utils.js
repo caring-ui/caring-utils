@@ -155,12 +155,60 @@ export const shuffle = (array) => {
 
 
 /**
+ * 日期格式化
+ * @param {Number|Date} date 时间戳或 Date 对象
+ * @param {String} format 格式字符串，如 'yyyy-MM-dd hh:mm:ss'、'yyyy/MM/dd' 等
+ *
+ * 格式占位符（与 moment/dayjs 对齐）：
+ *   yyyy / yy  年
+ *   MM         月份（大写，必须大写！小写 mm 表示分钟）
+ *   dd         日
+ *   hh         时
+ *   mm / ii    分钟（小写 mm 或 ii 均可）
+ *   ss         秒
+ */
+export const timeFormat = (date, format = 'yyyy-MM-dd') => {
+  const d = date instanceof Date ? date : new Date(date)
+  if (isNaN(d.getTime())) return ''
+  const pad = (n) => String(n).padStart(2, '0')
+
+  // 先把所有占位符替换成不会互相冲突的唯一 token
+  let str = format
+    .replace(/yyyy/g, '\u0001Y4\u0001')
+    .replace(/yy/g, '\u0001Y2\u0001')
+    .replace(/MM/g, '\u0001MO\u0001')
+    .replace(/dd/g, '\u0001DD\u0001')
+    .replace(/hh/g, '\u0001HH\u0001')
+    .replace(/ii/g, '\u0001MI\u0001')
+    .replace(/mm/g, '\u0001MI\u0001')
+    .replace(/ss/g, '\u0001SS\u0001')
+
+  // 再把 token 替换成实际值
+  return str
+    .replace(/\u0001Y4\u0001/g, d.getFullYear())
+    .replace(/\u0001Y2\u0001/g, String(d.getFullYear()).slice(-2))
+    .replace(/\u0001MO\u0001/g, pad(d.getMonth() + 1))
+    .replace(/\u0001DD\u0001/g, pad(d.getDate()))
+    .replace(/\u0001HH\u0001/g, pad(d.getHours()))
+    .replace(/\u0001MI\u0001/g, pad(d.getMinutes()))
+    .replace(/\u0001SS\u0001/g, pad(d.getSeconds()))
+}
+
+export const today = () => {
+  return timeFormat(new Date(), 'yyyy-MM-dd')
+}
+
+export const now = () => {
+  return timeFormat(new Date(), 'yyyy-MM-dd hh:mm:ss')
+}
+
+/**
  * 时间戳转为多久之前
  * @param String timestamp 时间戳
  * @param String | Boolean format 如果为时间格式字符串，超出一定时间范围，返回固定的时间格式；
  * 如果为布尔值false，无论什么时间，都返回多久以前的格式
  */
-export const timeFrom = (timestamp = null, format = 'yyyy-mm-dd') => {
+export const timeFrom = (timestamp = null, format = 'yyyy-MM-dd') => {
   if (timestamp == null) timestamp = Number(new Date())
   timestamp = parseInt(timestamp)
   // 判断用户输入的时间戳是秒还是毫秒,一般前端js获取的时间戳是毫秒(13位),后端传过来的为秒(10位)

@@ -1,31 +1,39 @@
-let timer, flag;
+const throttleMap = new WeakMap()
+
 /**
  * 节流原理：在一定时间内，只能触发一次
- * 
- * @param {Function} func 要执行的回调函数 
+ *
+ * @param {Function} func 要执行的回调函数
  * @param {Number} wait 延时的时间
  * @param {Boolean} immediate 是否立即执行
  * @return null
  */
 export function throttle(func, wait = 500, immediate = true) {
+  let state = throttleMap.get(func)
+  if (!state) {
+    state = { flag: false, timer: null }
+    throttleMap.set(func, state)
+  }
+
   if (immediate) {
-    if (!flag) {
-      flag = true
+    if (!state.flag) {
+      state.flag = true
       // 如果是立即执行，则在wait毫秒内开始时执行
       typeof func === 'function' && func()
-      timer = setTimeout(() => {
-        flag = false
+      state.timer = setTimeout(() => {
+        state.flag = false
       }, wait)
     }
   } else {
-    if (!flag) {
-      flag = true
+    if (!state.flag) {
+      state.flag = true
       // 如果是非立即执行，则在wait毫秒内的结束处执行
-      timer = setTimeout(() => {
-        flag = false
+      state.timer = setTimeout(() => {
+        state.flag = false
         typeof func === 'function' && func()
       }, wait)
     }
   }
 }
+
 export default throttle

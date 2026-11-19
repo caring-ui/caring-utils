@@ -185,17 +185,17 @@ export function isEmpty(value) {
 export function isDate(value) {
   if (!value) return false
   // 判断是否数值或者字符串数值(意味着为时间戳)，转为数值，否则new Date无法识别字符串时间戳
-  if (number(value)) value = +value
+  if (isNumber(value)) value = +value
   return !/Invalid|NaN/.test(new Date(value).toString())
 }
 
-// 判断是否为时间戳
+// 判断是否为图片
 export function isImage(value) {
   const IMAGE_REGEXP = /\.(jpeg|jpg|gif|png|svg|webp|jfif|bmp|dpg)/i
   return IMAGE_REGEXP.test(value)
 }
 
-// 判断是否为图片
+// 判断是否为视频
 export function isVideo(value) {
   const VIDEO_REGEXP = /\.(mp4|mpg|mpeg|dat|asf|avi|rm|rmvb|mov|wmv|flv|mkv)/i
   return VIDEO_REGEXP.test(value)

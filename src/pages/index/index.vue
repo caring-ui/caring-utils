@@ -9,8 +9,8 @@
 </template>
 
 <script>
-// import utils from '../../caring-utils/index.js'
-import utils from 'caring-utils'
+import utils from '../../caring-utils/index.js'
+// import utils from 'caring-utils'
 import { test, uniUtils, isArray, modal } from '../../caring-utils/index.js'
 export default {
   data() {
@@ -20,13 +20,15 @@ export default {
   },
   onLoad() {
     console.log('🐞===>utils：', utils)
-    console.log(utils.guid())
-    console.log(utils.shuffle([1, 2, 3, 4, 5]))
-    console.log(utils.isArray([]))
-    console.log(isArray([]))
-    console.log(test.isArray([]))
+    // console.log(utils.guid())
+    // console.log(utils.shuffle([1, 2, 3, 4, 5]))
+    // console.log(utils.isArray([]))
+    // console.log(isArray([]))
+    // console.log(test.isArray([]))
 
-    console.log(utils.debounce(() => {}, 1000))
+    // console.log(utils.debounce(() => {}, 1000))
+    console.log(utils.today())
+    console.log(utils.now())
   },
   methods: {
     async onShowLoading() {

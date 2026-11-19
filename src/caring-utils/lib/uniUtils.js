@@ -105,6 +105,8 @@ export const title = (title = '') => {
     })
   })
 }
+export const setTitle = title
+
 
 export const toast = (
   title = '未知错误信息',
